@@ -65,7 +65,7 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!--springboot-thymeleaf htmlm模版属性设置-->
+		<!--springboot-thymeleaf html模版属性设置-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
