@@ -28,3 +28,6 @@
        }
  4.如果application.java 的位置发生变化，则需要添加该注解：
    @ComponentScan("com.moafmoar.*")  扫面类
+   
+ 5.Swagger2需要使用spring-boot:run才能看到效果，目前还没有验证war是否生效
+ 
