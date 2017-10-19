@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -43,8 +44,13 @@ public class SessionFactoryConfig implements TransactionManagementConfigurer {
         sqlSessionFactoryBean.setConfigLocation(new ClassPathResource(MYBATIS_CONFIG));
 /** 设置datasource */
         sqlSessionFactoryBean.setDataSource(dataSource);
-/** 设置typeAlias 包扫描路径 */
-        sqlSessionFactoryBean.setTypeAliasesPackage(typeAliasPackage);
+/** 设置typeAlias 包扫描路径
+        //sqlSessionFactoryBean.setTypeAliasesPackage(typeAliasPackage);*/
+/** 设置mappers xml文件路径**/
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mappers/*.xml"));
+
         return sqlSessionFactoryBean;
     }
 
