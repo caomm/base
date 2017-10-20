@@ -18,8 +18,6 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import javax.sql.DataSource;
 
 @Configuration
-@EnableTransactionManagement
-@MapperScan("com.moafmoar.mapper")
 public class SessionFactoryConfig implements TransactionManagementConfigurer {
     /** * mybatis 配置路径 */
     private static String MYBATIS_CONFIG = "mybatis-config.xml";
@@ -27,7 +25,7 @@ public class SessionFactoryConfig implements TransactionManagementConfigurer {
     @Autowired
     private DataSource dataSource;
 
-    private String typeAliasPackage = "com.moafmoar.*";
+    private String typeAliasPackage = "com.moafmoar.*.dao";
 
     /**
      *创建sqlSessionFactoryBean 实例

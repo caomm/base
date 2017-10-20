@@ -11,10 +11,10 @@ import org.springframework.context.annotation.ComponentScan;
 /**
  * 通过maven tomcat 插件启动方式
  */
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan
-@MapperScan("com.moafmoar")
+//@ComponentScan
+@MapperScan("com.moafmoar.*.dao")
 public class SpringbootdemoApplication extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
